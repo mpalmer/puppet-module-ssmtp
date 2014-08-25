@@ -60,9 +60,10 @@ class ssmtp(
 	}
 
 	bitfile { "/etc/ssmtp/revaliases":
-		mode  => 0444,
-		owner => "root",
-		group => "root",
+		mode    => 0444,
+		owner   => "root",
+		group   => "root",
+		require => Noop["ssmtp/installed"],
 	}
 
 	bitfile::bit { "revaliases header":
