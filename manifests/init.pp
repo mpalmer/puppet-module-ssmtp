@@ -52,7 +52,7 @@ class ssmtp(
 	file { "/etc/ssmtp/ssmtp.conf":
 		ensure  => file,
 		content => template("ssmtp/etc/ssmtp/ssmtp.conf"),
-		mode    => 0444,
+		mode    => "0444",
 		owner   => "root",
 		group   => "root",
 		require => Noop["ssmtp/installed"],
@@ -60,7 +60,7 @@ class ssmtp(
 	}
 
 	bitfile { "/etc/ssmtp/revaliases":
-		mode    => 0444,
+		mode    => "0444",
 		owner   => "root",
 		group   => "root",
 		require => Noop["ssmtp/installed"],
